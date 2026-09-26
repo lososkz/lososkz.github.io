@@ -2,7 +2,7 @@
    Источник берётся из ?src= в ссылке (bio, target_sep, stories…) и помнится до конца сессии.
    Пока ENDPOINT пустой — ничего никуда не шлёт. */
 (function () {
-  var ENDPOINT = '';
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbyUDaqHH_Rbij4EhAX_qg5ch--lqe3yg8XdHNtUQUuXZPCud5eSMx_l4W-56bBXcacP/exec';
   var page = document.documentElement.getAttribute('data-page') || 'main';
   var src = '';
   try {
