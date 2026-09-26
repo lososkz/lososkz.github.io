@@ -14,15 +14,9 @@ function lososOpen(btn) {
     return;
   }
   if (!ios) { btn.href = ANY; return; }
-  btn.href = SCHEME;
-  btn.addEventListener('click', function (e) {
-    e.preventDefault();
-    var gone = false;
-    function left() { gone = true; }
-    document.addEventListener('visibilitychange', function () { if (document.hidden) left(); });
-    window.addEventListener('pagehide', left);
-    window.addEventListener('blur', left);
-    setTimeout(function () { if (!gone) location.href = IOS; }, 1600);
-    location.href = SCHEME;
-  });
+  /* 🔴 26.09.2026: на iPhone схему НЕ пробуем. Без установленного приложения Safari
+     показывает «адрес недействителен» (проверено Азаматом с удалённым приложением),
+     а узнать заранее, стоит ли оно, iOS сайту не даёт. Ведём в App Store: там
+     «Открыть», если приложение есть, и «Загрузить», если нет. */
+  btn.href = IOS;
 }

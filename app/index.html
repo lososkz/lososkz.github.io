@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Лосось.кз · открываем приложение</title>
+<meta name="apple-itunes-app" content="app-id=6740765547">
 <meta name="theme-color" content="#FAF6F2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,16 +42,10 @@
     location.href = intent;
     return;
   }
-  if (!ios) { location.href = store; return; }
-
-  // iPhone: пробуем приложение; если страница осталась на экране — значит, его нет.
-  var ушли = false;
-  function ушёл() { ушли = true; }
-  document.addEventListener('visibilitychange', function () { if (document.hidden) ушёл(); });
-  window.addEventListener('pagehide', ушёл);
-  window.addEventListener('blur', ушёл);
-  setTimeout(function () { if (!ушли) location.href = store; }, 1600);
-  location.href = SCHEME;
+  // iPhone и прочие: в магазин. Схему на iPhone не пробуем — без приложения Safari
+  // показывает ошибку «адрес недействителен» (26.09.2026). В App Store будет «Открыть»,
+  // если приложение стоит.
+  location.href = store;
 })();
 </script>
 </body>
