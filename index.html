@@ -20,7 +20,14 @@
   .w{max-width:420px;margin:0 auto;padding:22px 16px 32px;text-align:center}
   .logo{height:34px;display:block;margin:0 auto 20px}
   .city{font-size:13px;font-weight:600;color:var(--ink2);margin:0 0 18px}
-  .hero{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:20px;background:#222;margin:0 0 18px}
+  .promo{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:18px;scrollbar-width:none;
+         box-shadow:0 10px 24px -14px rgba(80,30,10,.35)}
+  .promo::-webkit-scrollbar{display:none}
+  .slide{flex:none;width:100%;scroll-snap-align:center}
+  .slide img{display:block;width:100%;aspect-ratio:750/320;background:#F3E6DC}
+  .dots{display:flex;justify-content:center;gap:6px;margin:10px 0 16px}
+  .dots i{width:6px;height:6px;border-radius:3px;background:#D8CEC4;transition:width .2s,background .2s}
+  .dots i.on{width:18px;background:var(--act)}
   .btn{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;
        min-height:62px;margin:0 0 12px;padding:12px 56px;border-radius:16px;text-decoration:none;color:#fff;
        font-weight:700;font-size:16.5px;transition:transform .12s,filter .12s}
@@ -40,7 +47,12 @@
 <div class="w">
   <img class="logo" src="img/losos-full-1200.png" alt="Лосось.кз">
 
-  <img class="hero" src="img/d120.jpg" alt="Роллы Лосось" fetchpriority="high">
+  <div class="promo" id="promo">
+    <a class="slide" href="https://foodpicasso.com/x/3341xacf"><img src="img/b_happy.jpg" alt="Обедай с 11 до 16 на 10% дешевле. В будни, на всё меню. Промокод HAPPY в корзине" fetchpriority="high"></a>
+    <a class="slide" href="https://foodpicasso.com/x/3341xacf"><img src="img/b_drug.jpg" alt="Есть код друга? 3 000 баллов тебе. Введи код в приложении, сделай первый заказ от 6 000 ₸" loading="lazy"></a>
+    <a class="slide" href="https://foodpicasso.com/x/3341xacf"><img src="img/b_dr.jpg" alt="В день рождения ролл в подарок. Филадельфия 8 шт при заказе от 6 000 ₸" loading="lazy"></a>
+  </div>
+  <div class="dots" id="dots"><i class="on"></i><i></i><i></i></div>
 
   <a class="btn main" id="open" href="https://foodpicasso.com/x/3341xacf">
     <svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>
@@ -62,6 +74,19 @@
 
 </div>
 <script src="open.js"></script>
-<script>lososOpen(document.getElementById('open'));</script>
+<script>
+  lososOpen(document.getElementById('open'));
+  document.querySelectorAll('.slide').forEach(lososOpen);
+  (function(){
+    var box=document.getElementById('promo'),dots=document.querySelectorAll('#dots i'),n=dots.length,cur=0,t;
+    function mark(i){cur=i;dots.forEach(function(d,k){d.classList.toggle('on',k===i)})}
+    box.addEventListener('scroll',function(){mark(Math.round(box.scrollLeft/box.clientWidth))},{passive:true});
+    function next(){box.scrollTo({left:((cur+1)%n)*box.clientWidth,behavior:'smooth'})}
+    function start(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;clearInterval(t);t=setInterval(next,4500)}
+    box.addEventListener('touchstart',function(){clearInterval(t)},{passive:true});
+    box.addEventListener('touchend',start,{passive:true});
+    start();
+  })();
+</script>
 </body>
 </html>
