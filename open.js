@@ -9,8 +9,20 @@ function lososOpen(btn) {
   var ios = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && 'ontouchend' in document);
   var and = /Android/i.test(ua);
   if (and) {
-    btn.href = 'intent://#Intent;scheme=com.foodpicasso.lososkz;package=com.foodpicasso.lososkz;' +
-               'S.browser_fallback_url=' + encodeURIComponent(AND) + ';end';
+    var intent = 'intent://#Intent;scheme=com.foodpicasso.lososkz;package=com.foodpicasso.lososkz;' +
+                 'S.browser_fallback_url=' + encodeURIComponent(AND) + ';end';
+    btn.href = intent;
+    /* 26.09.2026: счётчик показал, что во встроенном браузере Instagram на Android
+       intent:// молча не срабатывает — люди жали «в приложение» по 4 раза и уходили на сайт.
+       Остались на странице через 1,5 с — ведём в Google Play («Открыть» или «Установить»). */
+    btn.addEventListener('click', function () {
+      var gone = false;
+      function left() { gone = true; }
+      document.addEventListener('visibilitychange', function () { if (document.hidden) left(); });
+      window.addEventListener('pagehide', left);
+      window.addEventListener('blur', left);
+      setTimeout(function () { if (!gone) location.href = AND; }, 1500);
+    });
     return;
   }
   if (!ios) { btn.href = ANY; return; }

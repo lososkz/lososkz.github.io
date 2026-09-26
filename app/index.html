@@ -40,6 +40,12 @@
     var intent = 'intent://#Intent;scheme=com.foodpicasso.lososkz;package=com.foodpicasso.lososkz;' +
                  'S.browser_fallback_url=' + encodeURIComponent(AND) + ';end';
     document.getElementById('open').href = intent;
+    // Встроенные браузеры (Instagram) intent:// не открывают — остались на странице, ведём в Google Play.
+    var ушлиА = false;
+    document.addEventListener('visibilitychange', function () { if (document.hidden) ушлиА = true; });
+    window.addEventListener('pagehide', function () { ушлиА = true; });
+    window.addEventListener('blur', function () { ушлиА = true; });
+    setTimeout(function () { if (!ушлиА) location.href = AND; }, 1500);
     location.href = intent;
     return;
   }
