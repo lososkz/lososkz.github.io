@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-page="main">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -19,22 +19,22 @@
   <img class="logo" src="img/losos-full-1200.png" alt="Лосось.кз">
 
   <div class="promo" id="promo">
-    <a class="slide" href="https://foodpicasso.com/x/3341xacf"><img src="img/b_happy.jpg" alt="Обедай с 11 до 16 на 10% дешевле. В будни, на всё меню. Промокод HAPPY в корзине" fetchpriority="high"></a>
-    <a class="slide" href="https://foodpicasso.com/x/3341xacf"><img src="img/b_drug.jpg" alt="Есть код друга? 3 000 баллов тебе. Введи код в приложении, сделай первый заказ от 6 000 ₸" loading="lazy"></a>
-    <a class="slide" href="https://foodpicasso.com/x/3341xacf"><img src="img/b_dr.jpg" alt="В день рождения ролл в подарок. Филадельфия 8 шт при заказе от 6 000 ₸" loading="lazy"></a>
+    <a class="slide" data-e="banner_happy" href="https://foodpicasso.com/x/3341xacf"><img src="img/b_happy.jpg" alt="Обедай с 11 до 16 на 10% дешевле. В будни, на всё меню. Промокод HAPPY в корзине" fetchpriority="high"></a>
+    <a class="slide" data-e="banner_drug" href="https://foodpicasso.com/x/3341xacf"><img src="img/b_drug.jpg" alt="Есть код друга? 3 000 баллов тебе. Введи код в приложении, сделай первый заказ от 6 000 ₸" loading="lazy"></a>
+    <a class="slide" data-e="banner_dr" href="https://foodpicasso.com/x/3341xacf"><img src="img/b_dr.jpg" alt="В день рождения ролл в подарок. Филадельфия 8 шт при заказе от 6 000 ₸" loading="lazy"></a>
   </div>
   <div class="dots" id="dots"><i class="on"></i><i></i><i></i></div>
 
-  <a class="btn main" id="open" href="https://foodpicasso.com/x/3341xacf">
+  <a class="btn main" data-e="app" id="open" href="https://foodpicasso.com/x/3341xacf">
     <svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>
     Заказать в приложении
     <small>баллы с каждого заказа</small>
   </a>
-  <a class="btn dark" href="https://losos.kz/?utm_source=hub_main">
+  <a class="btn dark" data-e="site" href="https://losos.kz/?utm_source=hub_main">
     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
     Заказать на сайте
   </a>
-  <a class="btn wa" href="https://wa.me/77477142222?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7">
+  <a class="btn wa" data-e="wa" href="https://wa.me/77477142222?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7">
     <svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c.3 2.3 2.2 4.3 4.5 4.8l1.2-1.2 2 .8"/></svg>
     Заказать в WhatsApp
   </a>
@@ -55,5 +55,6 @@
     start();
   })();
 </script>
+<script src="track.js"></script>
 </body>
 </html>
