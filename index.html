@@ -6,89 +6,37 @@
 <title>Лосось.кз · суши и роллы</title>
 <meta name="description" content="Доставка и самовывоз роллов в Костанае и Рудном. Заказывай в приложении, на сайте или в WhatsApp.">
 <meta property="og:title" content="Лосось.кз · суши и роллы">
-<meta property="og:description" content="Четыре точки в Костанае и Рудном. Доставка и самовывоз.">
 <meta property="og:image" content="https://lososkz.github.io/img/d120.jpg">
 <meta name="theme-color" content="#FAF6F2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --field:#FAF6F2; --card:#FFFFFF; --line:#EDE6DF;
-    --ink:#222222; --ink2:#6E6862;
-    --act:#D53610; --act-press:#B92C0B;
-    --salmon:#FF9966; --gold:#F0C030; --gold-soft:#FFF6D9;
-    --r:22px;
-  }
+  :root{--field:#FAF6F2;--card:#fff;--line:#EDE6DF;--ink:#222;--ink2:#6E6862;--act:#D53610;--act-press:#B92C0B;--salmon:#FF9966}
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html{background:var(--field)}
-  body{margin:0;background:var(--field);color:var(--ink);
-       font:500 15px/1.5 Montserrat,-apple-system,system-ui,sans-serif;
-       padding-bottom:calc(96px + env(safe-area-inset-bottom))}
-  ::selection{background:var(--salmon);color:#222}
+  html,body{background:var(--field)}
+  body{margin:0;color:var(--ink);font:500 15px/1.5 Montserrat,-apple-system,system-ui,sans-serif}
   a{color:inherit}
-  a:focus-visible,button:focus-visible{outline:3px solid var(--salmon);outline-offset:3px;border-radius:14px}
-  .w{max-width:440px;margin:0 auto;padding:0 16px}
-
-  header{display:flex;align-items:center;justify-content:space-between;padding:18px 2px 16px}
-  header img{height:26px;width:auto;display:block}
+  a:focus-visible{outline:3px solid var(--salmon);outline-offset:3px;border-radius:14px}
+  .w{max-width:440px;margin:0 auto;padding:0 16px 28px}
+  header{display:flex;align-items:center;justify-content:space-between;padding:16px 2px 14px}
+  header img{height:24px;display:block}
   header span{font-size:12.5px;font-weight:600;color:var(--ink2)}
-
-  .hero{background:#222;border-radius:var(--r);overflow:hidden;position:relative}
-  .hero img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
-  h1{font-size:30px;line-height:1.12;font-weight:800;letter-spacing:-.02em;margin:22px 2px 8px}
-  .lead{margin:0 2px 20px;color:var(--ink2);font-size:15.5px}
-
-  .cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
-       min-height:60px;padding:14px 20px;border-radius:18px;background:var(--act);color:#fff;
-       text-decoration:none;font-weight:700;font-size:17px;border:0;
+  .hero{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:22px;background:#222}
+  h1{font-size:27px;line-height:1.15;font-weight:800;letter-spacing:-.02em;margin:18px 2px 16px}
+  .cta{display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:14px 20px;border-radius:18px;
+       background:var(--act);color:#fff;text-decoration:none;font-weight:700;font-size:17px;
        box-shadow:0 8px 20px -8px rgba(80,30,10,.45);transition:transform .12s,background .12s}
   .cta:active{transform:scale(.98);background:var(--act-press)}
   .cta svg{width:20px;height:20px}
-  .hint{text-align:center;font-size:12.5px;color:var(--ink2);margin:9px 0 0}
-
-  .row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 0}
-  .tile{background:var(--card);border-radius:18px;padding:14px 6px 12px;text-decoration:none;
-        display:flex;flex-direction:column;align-items:center;gap:7px;font-size:13px;font-weight:600;
-        border:1px solid var(--line);transition:transform .12s}
+  .row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0 0}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 6px 10px;text-decoration:none;
+        display:flex;flex-direction:column;align-items:center;gap:6px;font-size:13px;font-weight:600;transition:transform .12s}
   .tile:active{transform:scale(.97)}
-  .tile svg{width:24px;height:24px;stroke:var(--ink);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-
-  h2{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:36px 2px 14px}
-  .card{background:var(--card);border-radius:var(--r);border:1px solid var(--line);padding:18px}
-  .card + .card{margin-top:10px}
-  .perk{display:flex;gap:14px;align-items:flex-start}
-  .perk .ic{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:#F6F1EC}
-  .perk .ic svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-  .perk.pts .ic{background:var(--gold-soft)}
-  .perk.pts .ic svg{stroke:#8A6A00}
-  .perk b{display:block;font-size:16px;font-weight:700;line-height:1.3;margin-bottom:3px}
-  .perk p{margin:0;color:var(--ink2);font-size:14px}
-  .num{font-variant-numeric:tabular-nums;white-space:nowrap}
-
-  .strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 4px;scrollbar-width:none}
-  .strip::-webkit-scrollbar{display:none}
-  @media (min-width:472px){.strip{margin:0;padding:0 0 4px;border-radius:18px}}
-  .strip img{flex:none;width:62%;max-width:260px;aspect-ratio:1/1;object-fit:cover;border-radius:18px;background:#222;scroll-snap-align:start}
-  .more{display:inline-flex;align-items:center;gap:6px;margin:12px 2px 0;font-weight:700;font-size:14px;color:var(--act);text-decoration:none;background:none;border:0;padding:6px 0;cursor:pointer;font-family:inherit}
-  .more svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
-
-  .points{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .pt{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 16px}
-  .pt b{display:block;font-size:16px;font-weight:700}
-  .pt span{font-size:13px;color:var(--ink2)}
-  .note{margin:12px 2px 0;font-size:13.5px;color:var(--ink2)}
-
-  footer{margin:40px 2px 0;font-size:12px;color:var(--ink2);text-align:center}
-  footer img{height:18px;opacity:.55;display:block;margin:0 auto 8px}
-
-  .dock{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
-        background:linear-gradient(to top,var(--field) 70%,rgba(250,246,242,0));
-        transform:translateY(110%);transition:transform .25s ease;z-index:5}
-  .dock.on{transform:none}
-  .dock .cta{max-width:408px;margin:0 auto}
+  .tile svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .info{margin:18px 2px 0;font-size:13.5px;color:var(--ink2)}
+  .info b{color:var(--ink);font-weight:700}
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
-  @media (min-width:700px){body{padding-top:24px}h1{font-size:34px}}
 </style>
 </head>
 <body>
@@ -98,16 +46,13 @@
     <span>Костанай · Рудный</span>
   </header>
 
-  <div class="hero"><img src="img/d120.jpg" alt="Роллы Лосось" fetchpriority="high"></div>
-
+  <img class="hero" src="img/d120.jpg" alt="Роллы Лосось" fetchpriority="high">
   <h1>Роллы, в которых много лосося</h1>
-  <p class="lead">Доставка и самовывоз из четырёх точек в&nbsp;Костанае и Рудном.</p>
 
   <a class="cta" id="open" href="https://foodpicasso.com/x/3341xacf">
     Заказать в приложении
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
   </a>
-  <p class="hint">Нет приложения? Откроется магазин приложений</p>
 
   <nav class="row" aria-label="Другие способы заказать">
     <a class="tile" href="https://losos.kz/?utm_source=hub_main">
@@ -124,62 +69,9 @@
     </a>
   </nav>
 
-  <h2>Что ты получаешь в приложении</h2>
-  <div class="card perk pts">
-    <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M9 12h6M12 9v6"/></svg></div>
-    <div><b>Баллы с каждого заказа</b><p>Копятся сами, а потом ими можно оплатить до половины заказа.</p></div>
-  </div>
-  <div class="card perk pts">
-    <div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><circle cx="16.5" cy="9.5" r="2.6"/><path d="M3.5 19c.6-3 2.8-4.8 5.5-4.8s4.9 1.8 5.5 4.8M14.5 14.6c2.6-.4 5 1.1 5.8 4.4"/></svg></div>
-    <div><b>Код друга: <span class="num">3&nbsp;000</span> баллов вам обоим</b><p>Введи код друга в приложении и сделай первый заказ от <span class="num">6&nbsp;000&nbsp;₸</span>. Баллы придут тебе и ему.</p></div>
-  </div>
-  <div class="card perk">
-    <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M3 10h18M12 10v10M12 10c-1.5-3.5-5-4.5-5-2s3 2 5 2zm0 0c1.5-3.5 5-4.5 5-2s-3 2-5 2z"/></svg></div>
-    <div><b>Ролл в подарок на день рождения</b><p>Филадельфия 8&nbsp;шт при заказе от <span class="num">6&nbsp;000&nbsp;₸</span>. Укажи дату рождения в профиле.</p></div>
-  </div>
-
-  <h2>Из нашего меню</h2>
-  <div class="strip">
-    <img src="img/d079.jpg" alt="Сет роллов" loading="lazy">
-    <img src="img/d090.jpg" alt="Ролл с икрой тобико" loading="lazy">
-    <img src="img/d132.jpg" alt="Запечённые роллы" loading="lazy">
-    <img src="img/d071.jpg" alt="Пицца" loading="lazy">
-    <img src="img/d069.jpg" alt="Вок" loading="lazy">
-  </div>
-  <a class="more" id="menu" href="https://foodpicasso.com/x/3341xacf">Всё меню в приложении
-    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
-
-  <h2>Где мы</h2>
-  <div class="points">
-    <div class="pt"><b>Гоголя</b><span>Костанай</span></div>
-    <div class="pt"><b>5-МКР</b><span>Костанай</span></div>
-    <div class="pt"><b>КСК</b><span>Костанай</span></div>
-    <div class="pt"><b>Рудный</b><span>Рудный</span></div>
-  </div>
-  <p class="note">Привезём домой или забирай сам из любой точки.</p>
-
-  <footer>
-    <img src="img/losos-full-1200.png" alt="">
-    Лосось.кз · Костанай и Рудный
-  </footer>
+  <p class="info">В приложении <b>баллы с каждого заказа</b>, ими можно оплатить до половины следующего. Доставка и самовывоз: Гоголя, 5-МКР, КСК, Рудный.</p>
 </div>
-
-<div class="dock" id="dock" aria-hidden="true">
-  <a class="cta" id="open2" href="https://foodpicasso.com/x/3341xacf" tabindex="-1">Заказать в приложении</a>
-</div>
-
 <script src="open.js"></script>
-<script>
-  ['open','open2','menu'].forEach(function(id){lososOpen(document.getElementById(id))});
-  (function(){
-    var main=document.getElementById('open'),dock=document.getElementById('dock');
-    if(!('IntersectionObserver' in window))return;
-    new IntersectionObserver(function(e){
-      var past=!e[0].isIntersecting&&e[0].boundingClientRect.top<0;
-      dock.classList.toggle('on',past);dock.setAttribute('aria-hidden',!past);
-      document.getElementById('open2').tabIndex=past?0:-1;
-    }).observe(main);
-  })();
-</script>
+<script>lososOpen(document.getElementById('open'));</script>
 </body>
 </html>
