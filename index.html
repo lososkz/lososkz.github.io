@@ -3,75 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Лосось — ваши баллы ждут вас</title>
-<meta name="description" content="Баллами можно оплатить до половины заказа в приложении Лосось">
-<meta property="og:title" content="💰 Ваши баллы ждут вас — Лосось">
-<meta property="og:image" content="https://app.foodpicasso.com/source/api/logo/3341.png">
+<title>Лосось — доставка суши и роллов</title>
+<meta name="description" content="Закажите в приложении Лосось, на сайте или в WhatsApp">
+<meta property="og:title" content="Лосось — доставка суши и роллов">
+<meta property="og:image" content="https://lososkz.github.io/img/logo.png">
 <style>
-  :root{--bg:#fff3ec;--ink:#2b2b2b;--muted:#7d6d63;--brand:#f26a1b;--brand2:#ffab6b}
+  :root{--bg:#fff8f2;--brand:#f76707;--ink:#1f1f1f}
   *{box-sizing:border-box}
   body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);
-       font-family:-apple-system,system-ui,"Segoe UI",Roboto,sans-serif;
-       display:flex;justify-content:center;padding:28px 16px 40px}
-  .w{width:100%;max-width:380px;text-align:center}
-  .logo{width:112px;height:112px;border-radius:50%;background:#ff9a5c;display:block;margin:0 auto 18px;object-fit:cover}
-  h1{font-size:21px;font-weight:600;letter-spacing:.2px;margin:0 0 18px}
-  a.btn{display:flex;align-items:center;gap:14px;text-align:left;margin:12px 0;padding:14px 18px;border-radius:14px;
-        text-decoration:none;color:#fff;background:var(--brand);box-shadow:0 2px 0 rgba(0,0,0,.06)}
-  a.btn .t{display:block;font-weight:800;font-size:16px;text-transform:uppercase}
-  a.btn .s{display:block;font-size:13px;opacity:.9;margin-top:2px}
-  a.btn .i{font-size:26px;line-height:1;width:30px;text-align:center}
-  a.btn.light{background:var(--brand2)}
-  p.note{font-size:14px;line-height:1.45;margin:6px 0 22px}
-  p.proof{font-size:14px;font-weight:700;margin:22px 0 10px}
+       font-family:-apple-system,system-ui,"Segoe UI",Roboto,sans-serif;display:flex;justify-content:center;padding:0 16px 40px}
+  .w{width:100%;max-width:400px;text-align:center}
+  .logo{display:block;width:100%;max-width:400px;margin:0 auto 18px}
+  .banner{display:block;width:100%;border-radius:10px;margin:0 0 22px}
+  a.btn{display:flex;align-items:center;justify-content:center;gap:14px;margin:14px 0;padding:16px 18px;border-radius:14px;
+        text-decoration:none;color:#fff;font-weight:800;font-size:17px;text-transform:uppercase;position:relative}
+  a.btn .col{display:flex;flex-direction:column;align-items:center}
+  a.btn small{font-weight:400;text-transform:none;font-size:14px;opacity:.85;margin-top:3px}
+  a.main{background:var(--brand);box-shadow:0 6px 14px rgba(247,103,7,.25);min-height:72px}
+  a.site{background:#000}
+  a.wa{background:#5c9a0f}
+  a.btn .ic{position:absolute;left:18px;font-size:26px}
+  hr{border:0;height:1px;background:linear-gradient(90deg,transparent,#c9c2b8,transparent);width:60%;margin:26px auto}
 </style>
 </head>
 <body>
 <div class="w">
-  <img class="logo" src="https://app.foodpicasso.com/source/api/logo/3341.png" alt="Лосось">
-  <h1>💰 ВАШИ БАЛЛЫ ЖДУТ ВАС</h1>
-
-  <a class="btn" id="open" href="https://foodpicasso.com/x/3341xacf">
-    <span class="i">📱</span><span><span class="t">Оплатить баллами</span><span class="s">открыть приложение Лосось</span></span>
+  <img class="logo" src="img/logo.png" alt="Лосось">
+  <!-- БАННЕР: вернуть, когда проверим, что промокод ПЕРВЫЙ15 жив
+  <img class="banner" src="img/banner_pervyi15.jpg" alt="Скидка 15% на первый заказ по промокоду ПЕРВЫЙ15"> -->
+  <a class="btn main" id="open" href="https://foodpicasso.com/x/3341xacf">
+    <span class="col">Оформить заказ<small>в приложении Лосось</small></span>
   </a>
-  <p class="note">Баллами можно оплатить до половины заказа.<br>Успейте, пока не сгорели ⏳</p>
-
-  <a class="btn light" href="https://losos.kz/?utm_source=hub">
-    <span class="i">🌐</span><span><span class="t">Заказать на сайте</span><span class="s">losos.kz</span></span>
-  </a>
-  <p class="proof">Нас выбирают каждый день!<br>🔥 10 000+ заказов каждый месяц</p>
-  <a class="btn light" href="https://wa.me/77477142222">
-    <span class="i">💬</span><span><span class="t">Есть вопросы?</span><span class="s">Напишите в WhatsApp</span></span>
-  </a>
+  <hr>
+  <a class="btn site" href="https://losos.kz/?utm_source=hub_main"><span class="ic">🌐</span>Заказать через сайт</a>
+  <a class="btn wa" href="https://wa.me/77477142222?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7"><span class="ic">💬</span>Заказать через WhatsApp</a>
 </div>
-<script>
-(function () {
-  var SCHEME = 'com.foodpicasso.lososkz://';
-  var IOS = 'https://apps.apple.com/app/id6740765547';
-  var AND = 'https://play.google.com/store/apps/details?id=com.foodpicasso.lososkz';
-  var ANY = 'https://foodpicasso.com/x/3341xacf';
-  var ua = navigator.userAgent || '';
-  var ios = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && 'ontouchend' in document);
-  var and = /Android/i.test(ua);
-  var btn = document.getElementById('open');
-  if (and) {
-    btn.href = 'intent://#Intent;scheme=com.foodpicasso.lososkz;package=com.foodpicasso.lososkz;' +
-               'S.browser_fallback_url=' + encodeURIComponent(AND) + ';end';
-    return;
-  }
-  if (!ios) { btn.href = ANY; return; }
-  btn.href = SCHEME;
-  btn.addEventListener('click', function (e) {
-    e.preventDefault();
-    var ушли = false;
-    function ушёл() { ушли = true; }
-    document.addEventListener('visibilitychange', function () { if (document.hidden) ушёл(); });
-    window.addEventListener('pagehide', ушёл);
-    window.addEventListener('blur', ушёл);
-    setTimeout(function () { if (!ушли) location.href = IOS; }, 1600);
-    location.href = SCHEME;
-  });
-})();
-</script>
+<script src="open.js"></script>
+<script>lososOpen(document.getElementById('open'));</script>
 </body>
 </html>

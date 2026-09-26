@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Лосось — ваши баллы ждут вас</title>
+<meta name="description" content="Баллами можно оплатить до половины заказа в приложении Лосось">
+<meta property="og:title" content="💰 Ваши баллы ждут вас — Лосось">
+<meta property="og:image" content="https://app.foodpicasso.com/source/api/logo/3341.png">
+<style>
+  :root{--bg:#fff3ec;--ink:#2b2b2b;--muted:#7d6d63;--brand:#f26a1b;--brand2:#ffab6b}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);
+       font-family:-apple-system,system-ui,"Segoe UI",Roboto,sans-serif;
+       display:flex;justify-content:center;padding:28px 16px 40px}
+  .w{width:100%;max-width:380px;text-align:center}
+  .logo{width:112px;height:112px;border-radius:50%;background:#ff9a5c;display:block;margin:0 auto 18px;object-fit:cover}
+  h1{font-size:21px;font-weight:600;letter-spacing:.2px;margin:0 0 18px}
+  a.btn{display:flex;align-items:center;gap:14px;text-align:left;margin:12px 0;padding:14px 18px;border-radius:14px;
+        text-decoration:none;color:#fff;background:var(--brand);box-shadow:0 2px 0 rgba(0,0,0,.06)}
+  a.btn .t{display:block;font-weight:800;font-size:16px;text-transform:uppercase}
+  a.btn .s{display:block;font-size:13px;opacity:.9;margin-top:2px}
+  a.btn .i{font-size:26px;line-height:1;width:30px;text-align:center}
+  a.btn.light{background:var(--brand2)}
+  p.note{font-size:14px;line-height:1.45;margin:6px 0 22px}
+  p.proof{font-size:14px;font-weight:700;margin:22px 0 10px}
+</style>
+</head>
+<body>
+<div class="w">
+  <img class="logo" src="https://app.foodpicasso.com/source/api/logo/3341.png" alt="Лосось">
+  <h1>💰 ВАШИ БАЛЛЫ ЖДУТ ВАС</h1>
+
+  <a class="btn" id="open" href="https://foodpicasso.com/x/3341xacf">
+    <span class="i">📱</span><span><span class="t">Оплатить баллами</span><span class="s">открыть приложение Лосось</span></span>
+  </a>
+  <p class="note">Баллами можно оплатить до половины заказа.<br>Успейте, пока не сгорели ⏳</p>
+
+  <a class="btn light" href="https://losos.kz/?utm_source=hub_bally">
+    <span class="i">🌐</span><span><span class="t">Заказать на сайте</span><span class="s">losos.kz</span></span>
+  </a>
+  <p class="proof">Нас выбирают каждый день!<br>🔥 10 000+ заказов каждый месяц</p>
+  <a class="btn light" href="https://wa.me/77477142222">
+    <span class="i">💬</span><span><span class="t">Есть вопросы?</span><span class="s">Напишите в WhatsApp</span></span>
+  </a>
+</div>
+<script src="../open.js"></script>
+<script>lososOpen(document.getElementById('open'));</script>
+</body>
+</html>
