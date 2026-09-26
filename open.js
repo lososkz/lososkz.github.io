@@ -14,9 +14,19 @@ function lososOpen(btn) {
     return;
   }
   if (!ios) { btn.href = ANY; return; }
-  /* 🔴 26.09.2026: на iPhone схему НЕ пробуем. Без установленного приложения Safari
-     показывает «адрес недействителен» (проверено Азаматом с удалённым приложением),
-     а узнать заранее, стоит ли оно, iOS сайту не даёт. Ведём в App Store: там
-     «Открыть», если приложение есть, и «Загрузить», если нет. */
-  btn.href = IOS;
+  /* iPhone: пробуем приложение, остались на странице — ведём в App Store.
+     ⚠️ 26.09.2026: без приложения Safari на миг показывает «адрес недействителен».
+     Пробовали вместо этого всегда вести в App Store — Азамат вернул: главное, чтобы
+     с установленным приложением открывалось сразу. */
+  btn.href = SCHEME;
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    var gone = false;
+    function left() { gone = true; }
+    document.addEventListener('visibilitychange', function () { if (document.hidden) left(); });
+    window.addEventListener('pagehide', left);
+    window.addEventListener('blur', left);
+    setTimeout(function () { if (!gone) location.href = IOS; }, 1600);
+    location.href = SCHEME;
+  });
 }

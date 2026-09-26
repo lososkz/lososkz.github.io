@@ -42,10 +42,16 @@
     location.href = intent;
     return;
   }
-  // iPhone и прочие: в магазин. Схему на iPhone не пробуем — без приложения Safari
-  // показывает ошибку «адрес недействителен» (26.09.2026). В App Store будет «Открыть»,
-  // если приложение стоит.
-  location.href = store;
+  if (!ios) { location.href = store; return; }
+
+  // iPhone: пробуем приложение; если страница осталась на экране — значит, его нет.
+  var ушли = false;
+  function ушёл() { ушли = true; }
+  document.addEventListener('visibilitychange', function () { if (document.hidden) ушёл(); });
+  window.addEventListener('pagehide', ушёл);
+  window.addEventListener('blur', ушёл);
+  setTimeout(function () { if (!ушли) location.href = store; }, 1600);
+  location.href = SCHEME;
 })();
 </script>
 </body>
