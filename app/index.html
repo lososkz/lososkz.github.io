@@ -2,27 +2,23 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Лосось — открываем приложение</title>
-<style>
-  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
-       background:#fff3ec;color:#2b2b2b;font-family:-apple-system,system-ui,Segoe UI,Roboto,sans-serif;
-       text-align:center;padding:16px;box-sizing:border-box}
-  .w{max-width:340px;width:100%}
-  h1{font-size:20px;font-weight:600;margin:0 0 20px}
-  a{display:block;margin:12px 0;padding:15px 18px;border-radius:14px;text-decoration:none;
-    font-weight:700;font-size:16px;background:#f26a1b;color:#fff}
-  a.s{background:#fff;color:#f26a1b;border:2px solid #f26a1b}
-  p{font-size:13px;color:#8a7a70;margin-top:18px}
-</style>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Лосось.кз · открываем приложение</title>
+<meta name="theme-color" content="#FAF6F2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../hub.css">
+<style>body{min-height:100vh;display:flex;align-items:center}.w{padding-top:0}</style>
 </head>
 <body>
 <div class="w">
-  <h1>🍣 Открываем приложение Лосось…</h1>
-  <a id="open" href="com.foodpicasso.lososkz://">Открыть приложение</a>
-  <a id="store" class="s" href="https://foodpicasso.com/x/3341xacf">Скачать приложение</a>
-  <p>Баллами можно оплатить до половины заказа в приложении</p>
+  <img class="logo" src="../img/losos-full-1200.png" alt="Лосось.кз">
+  <h1>Открываем приложение…</h1>
+  <a class="btn main" id="open" href="https://foodpicasso.com/x/3341xacf">Открыть приложение</a>
+  <p class="note">Баллами можно оплатить до половины заказа</p>
 </div>
+<script src="../open.js"></script>
 <script>
 (function () {
   var SCHEME = 'com.foodpicasso.lososkz://';
@@ -33,7 +29,9 @@
   var ios = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && 'ontouchend' in document);
   var and = /Android/i.test(ua);
   var store = ios ? IOS : (and ? AND : ANY);
-  document.getElementById('store').href = store;
+  // Кнопка на случай, если встроенный браузер (Instagram, WhatsApp) не дал открыть сам:
+  // по нажатию та же логика — приложение, а если его нет, магазин.
+  lososOpen(document.getElementById('open'));
 
   if (and) {
     // Chrome сам откроет приложение, а если его нет — перейдёт на Google Play.

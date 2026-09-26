@@ -1,0 +1,35 @@
+/* Общий стиль хабов Лосось.кз. Цвета и шрифт из брендбука (07.09.2026):
+   #D53610 заливка кнопок под белым текстом, Montserrat, светлое тёплое поле. */
+:root{--field:#FAF6F2;--ink:#222;--ink2:#6E6862;--act:#D53610;--salmon:#FF9966;--wa:#177A4A}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--field)}
+body{margin:0;color:var(--ink);font:500 15px/1.45 Montserrat,-apple-system,system-ui,sans-serif}
+a:focus-visible{outline:3px solid var(--salmon);outline-offset:3px}
+.w{max-width:420px;margin:0 auto;padding:22px 16px 32px;text-align:center}
+.logo{height:34px;display:block;margin:0 auto 20px}
+h1{font-size:24px;line-height:1.2;font-weight:800;letter-spacing:-.01em;margin:0 0 16px}
+.note{margin:4px 0 18px;font-size:14px;color:var(--ink2)}
+
+.banner{display:block;width:100%;aspect-ratio:750/320;border-radius:18px;background:#F3E6DC;margin:0 0 16px;
+        box-shadow:0 10px 24px -14px rgba(80,30,10,.35)}
+.promo{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:18px;scrollbar-width:none;
+       box-shadow:0 10px 24px -14px rgba(80,30,10,.35)}
+.promo::-webkit-scrollbar{display:none}
+.slide{flex:none;width:100%;scroll-snap-align:center}
+.slide img{display:block;width:100%;aspect-ratio:750/320;background:#F3E6DC}
+.dots{display:flex;justify-content:center;gap:6px;margin:10px 0 16px}
+.dots i{width:6px;height:6px;border-radius:3px;background:#D8CEC4;transition:background .2s}
+.dots i.on{width:18px;background:var(--act)}
+
+.btn{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;
+     min-height:62px;margin:0 0 12px;padding:12px 56px;border-radius:16px;text-decoration:none;color:#fff;
+     font-weight:700;font-size:16.5px;transition:transform .12s,filter .12s}
+.btn:active{transform:scale(.98);filter:brightness(.92)}
+.btn small{font-weight:500;font-size:13px;margin-top:2px}
+.btn svg{position:absolute;left:20px;top:50%;width:24px;height:24px;margin-top:-12px;
+         fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.main{background:var(--act);min-height:74px;font-size:18px;box-shadow:0 10px 22px -10px rgba(120,30,5,.55)}
+.dark{background:#222}
+.wa{background:var(--wa)}
+.light{background:#fff;color:var(--ink);border:1px solid #E6DED6}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
