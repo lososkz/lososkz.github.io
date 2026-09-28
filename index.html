@@ -43,6 +43,11 @@
 </div>
 <script src="open.js"></script>
 <script>
+  // Слайд акции «10% баллами» прячется сам после 30.09 (Азамат: «вдруг я забуду»).
+  if (Date.now() >= Date.parse('2026-10-01T00:00:00+05:00')) {
+    var x2s = document.querySelector('[data-e=banner_x2]'); if (x2s) x2s.remove();
+    var dd = document.querySelectorAll('#dots i'); if (dd.length > 3) dd[dd.length - 1].remove();
+  }
   lososOpen(document.getElementById('open'));
   document.querySelectorAll('.slide').forEach(lososOpen);
   (function(){
