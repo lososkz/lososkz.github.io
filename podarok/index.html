@@ -88,6 +88,8 @@ fbq('init','1566847688192095');fbq('track','PageView');
   };
   var v = (location.search.match(/[?&]v=(\w+)/) || [])[1] || 'fila';
   var c = V[v] || V.fila;
+  // Город из ссылки рекламы: ?city=rudny → «в Рудном» (03.10, отдельная группа Рудного).
+  if (/[?&]city=rudny/.test(location.search)) c.s = c.s.replace('в Костанае', 'в Рудном');
   // Числа не рвём по строкам: «7 990 ₸» целиком (неразрывные пробелы).
   Object.keys(c).forEach(function (k) { if (typeof c[k] === 'string') c[k] = c[k].replace(/(\d) (\d{3})/g, '$1 $2').replace(/(\d) ₸/g, '$1 ₸'); });
   var $ = function (id) { return document.getElementById(id); };
