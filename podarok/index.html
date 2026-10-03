@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru" data-page="podarok">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Лосось.кз · подарок к первому заказу</title>
+<meta name="description" content="Подарок к первому заказу в Лосось.кз">
+<meta name="apple-itunes-app" content="app-id=6740765547">
+<meta name="theme-color" content="#FAF6F2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../hub.css">
+<!-- Пиксель Meta сайта losos.kz (тот же, 1566847688192095): PageView + Lead при выдаче кода -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1566847688192095');fbq('track','PageView');
+</script>
+<style>
+  .photo{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center 45%;border-radius:20px;margin:0 0 18px;
+         box-shadow:0 12px 24px -14px rgba(0,0,0,.35);background:#1d2026}
+  .kicker{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#B42D0B;margin:0 0 6px}
+  h1{font-size:28px;margin:0 0 8px}
+  .sub{font-size:15px;color:var(--ink2);margin:0 0 20px}
+  .form{background:#fff;border:1px solid #E6DED6;border-radius:18px;padding:16px;margin:0 0 14px;text-align:left}
+  .form label{display:block;font-size:13px;font-weight:600;color:var(--ink2);margin:0 0 8px}
+  .phone{display:flex;align-items:center;border:1.5px solid #E0D6CC;border-radius:12px;padding:0 14px;height:54px;background:var(--field)}
+  .phone:focus-within{border-color:var(--act)}
+  .phone span{font-weight:700;font-size:17px;margin-right:6px}
+  .phone input{flex:1;border:0;outline:0;background:transparent;font:700 17px Montserrat,system-ui,sans-serif;color:var(--ink);min-width:0}
+  .go{width:100%;margin:12px 0 0;border:0;cursor:pointer;font-family:inherit}
+  .fine{font-size:12px;color:var(--ink2);margin:10px 0 0;text-align:center}
+  .code{display:none;background:#fff;border:2px dashed var(--act);border-radius:18px;padding:18px 16px;margin:0 0 14px}
+  .code .t{font-size:13px;font-weight:600;color:var(--ink2);margin:0 0 6px}
+  .code b{display:block;font-size:34px;letter-spacing:.14em;font-weight:800;margin:0 0 6px}
+  .code .how{font-size:13px;color:var(--ink2);margin:0}
+  .done .form{display:none}.done .code{display:block}.next{display:none}.done .next{display:block}
+</style>
+</head>
+<body>
+<div class="w" id="w">
+  <img class="logo" src="../img/losos-full-1200.png" alt="Лосось.кз">
+  <img class="photo" id="ph" src="../img/fila.jpg" alt="Ролл Филадельфия">
+  <h1 id="h">Филадельфия в подарок</h1>
+  <p class="sub" id="s">Тем, кто заказывает у нас впервые, к заказу от 6 000 ₸. Доставка и самовывоз в Костанае.</p>
+
+  <form class="form" id="f" autocomplete="on">
+    <label for="tel">Ваш номер, на него закрепим подарок</label>
+    <div class="phone"><span>+7</span><input id="tel" type="tel" inputmode="numeric" placeholder="700 000 00 00" maxlength="14" required></div>
+    <button class="btn main go" type="submit">Получить подарок</button>
+    <p class="fine">Один подарок на номер, только на первый заказ</p>
+  </form>
+
+  <div class="code" id="c">
+    <p class="t" id="ct">Ваш личный код</p>
+    <b id="cv">R7K2Q</b>
+    <p class="how" id="ch">Введите его в корзине при оформлении. Действует до 31 октября.</p>
+  </div>
+
+  <div class="next">
+    <a class="btn main" data-e="app" id="open" href="https://foodpicasso.com/x/3341xacf">
+      <svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>
+      Заказать в приложении
+    </a>
+    <a class="btn dark" data-e="site" href="https://losos.kz/?utm_source=podarok">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+      Заказать на сайте
+    </a>
+  </div>
+</div>
+<script src="../open.js"></script>
+<script src="../track.js"></script>
+<script>
+  lososOpen(document.getElementById('open'));
+  // Вариант оффера из ссылки рекламы: ?v=fila (по умолчанию) · ?v=set · ?v=bonus
+  var V = {
+    fila: { ph: '../img/fila.jpg', alt: 'Ролл Филадельфия', h: 'Филадельфия в подарок',
+            s: 'Тем, кто заказывает у нас впервые, к заказу от 6 000 ₸. Доставка и самовывоз в Костанае.' },
+    set: { ph: '../img/set_druzya.jpg', alt: 'Сет Для друзей, 40 штук', h: 'Сет «Для друзей» за 7 990 ₸',
+           s: '40 штук вместо 9 990 ₸ на первый заказ. Доставка и самовывоз в Костанае.' },
+    bonus: { ph: '../img/set_lyubimy.jpg', alt: 'Роллы Лосось', h: '3 000 бонусов на первый заказ',
+             s: 'Бонусами можно оплатить до половины заказа. Доставка и самовывоз в Костанае.',
+             ct: 'Почти готово', cv: '3 000 ₸',
+             ch: 'Зарегистрируйтесь в приложении по этому номеру. Бонусы придут в течение 10 минут, действуют 7 дней.',
+             btn: 'Скачать приложение' }
+  };
+  var v = (location.search.match(/[?&]v=(\w+)/) || [])[1] || 'fila';
+  var c = V[v] || V.fila;
+  // Числа не рвём по строкам: «7 990 ₸» целиком (неразрывные пробелы).
+  Object.keys(c).forEach(function (k) { if (typeof c[k] === 'string') c[k] = c[k].replace(/(\d) (\d{3})/g, '$1 $2').replace(/(\d) ₸/g, '$1 ₸'); });
+  var $ = function (id) { return document.getElementById(id); };
+  $('ph').src = c.ph; $('ph').alt = c.alt; $('h').textContent = c.h; $('s').textContent = c.s;
+  if (c.ct) { $('ct').textContent = c.ct; $('cv').textContent = c.cv; $('ch').textContent = c.ch; }
+  if (c.btn) { $('open').childNodes[2].textContent = ' ' + c.btn + ' '; $('open').nextElementSibling.style.display = 'none'; }
+  if (/demo=code/.test(location.search)) document.getElementById('w').classList.add('done');
+  // Номер → счётчик хаба (тот же адрес, что в track.js) → личный код из пула или «ждём регистрации».
+  // Боевой проект, отдельный деплой «podarok lead» (02.10): код из пула ПОДАРОК_КОДЫ, лиды в ПОДАРОК_ЛИДЫ.
+  var EP = 'https://script.google.com/macros/s/AKfycbzzJgA_vlvJwr6baNLNz-7O60Wj_-yq5ryx8cBwjOBgbEoovw95pq004BRxgZFP63IeHA/exec';
+  var src = (location.search.match(/[?&]src=([\w\-.]+)/) || [])[1] || '';
+  var btn = document.querySelector('.go');
+  function запрос(тел, попытка) {
+    return fetch(EP + '?a=lead&v=' + encodeURIComponent(v) + '&src=' + encodeURIComponent(src) + '&tel=' + тел)
+      .then(function (r) { return r.json(); })
+      .catch(function () { if (попытка < 2) return запрос(тел, попытка + 1); throw new Error('net'); });
+  }
+  document.getElementById('f').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var тел = document.getElementById('tel').value.replace(/\D/g, '');
+    if (тел.length === 11 && /^[78]/.test(тел)) тел = тел.slice(1);
+    if (тел.length !== 10) { document.getElementById('tel').focus(); return; }
+    btn.disabled = true; btn.textContent = 'Секунду…';
+    запрос('7' + тел, 1).then(function (o) {
+      if (!o || !o.ok) throw new Error(o && o.err || 'bad');
+      if (o.code) $('cv').textContent = o.code;
+      document.getElementById('w').classList.add('done');
+      try { if (window.fbq) fbq('track', 'Lead', { content_name: v }); } catch (e2) {}
+    }).catch(function () {
+      btn.disabled = false; btn.textContent = 'Получить подарок';
+      document.querySelector('.fine').textContent = 'Не получилось, нажмите ещё раз или напишите нам в WhatsApp';
+    });
+  });
+</script>
+</body>
+</html>
