@@ -55,7 +55,7 @@ fbq('init','1566847688192095');fbq('track','PageView');
 
   <div class="code" id="c">
     <p class="t" id="ct">Ваш личный код</p>
-    <b id="cv">R7K2Q</b>
+    <b id="cv"></b>
     <p class="how" id="ch">Введите его в корзине при оформлении. Действует до 31 октября.</p>
   </div>
 
@@ -115,7 +115,16 @@ fbq('init','1566847688192095');fbq('track','PageView');
     btn.disabled = true; btn.textContent = 'Секунду…';
     запрос('7' + тел, 1).then(function (o) {
       if (!o || !o.ok) throw new Error(o && o.err || 'bad');
-      if (o.code) $('cv').textContent = o.code;
+      // 05.10: на повторный номер сервер отдаёт код С ПРОШЛОГО РАЗА (или пусто, если тогда были бонусы).
+      //    Раньше без кода оставалась заглушка из шаблона — ненастоящий код. Теперь честное сообщение.
+      if (o.code) {
+        $('cv').textContent = o.code;
+        if (o.repeat) $('ct').textContent = 'Этот номер уже получал подарок, ваш код';
+      } else if (v !== 'bonus') {
+        $('ct').textContent = 'На этот номер подарок уже выдан';
+        $('cv').style.display = 'none';
+        $('ch').textContent = 'Один подарок на номер. Если что-то не получилось, напишите нам в WhatsApp, поможем.';
+      }
       document.getElementById('w').classList.add('done');
       try { if (window.fbq) fbq('track', 'Lead', { content_name: v }); } catch (e2) {}
     }).catch(function () {
