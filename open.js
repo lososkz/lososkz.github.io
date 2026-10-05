@@ -8,6 +8,10 @@ function lososOpen(btn) {
   var ua = navigator.userAgent || '';
   var ios = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && 'ontouchend' in document);
   var and = /Android/i.test(ua);
+  /* 05.10.2026: во встроенном браузере Instagram/Facebook приложение напрямую не открывается
+     никогда — человек ждал 1,5 с и всё равно попадал в магазин. Там сразу ведём в магазин:
+     в App Store / Google Play у кого приложение есть — кнопка «Открыть», у кого нет — «Загрузить». */
+  if (/Instagram|FBAN|FBAV|FB_IAB/i.test(ua) && (ios || and)) { btn.href = ios ? IOS : AND; return; }
   if (and) {
     var intent = 'intent://#Intent;scheme=com.foodpicasso.lososkz;package=com.foodpicasso.lososkz;' +
                  'S.browser_fallback_url=' + encodeURIComponent(AND) + ';end';
