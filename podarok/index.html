@@ -56,7 +56,7 @@ fbq('init','1566847688192095');fbq('track','PageView');
   <div class="code" id="c">
     <p class="t" id="ct">Ваш личный код</p>
     <b id="cv"></b>
-    <p class="how" id="ch">Введите его в корзине при оформлении. Действует до 31 октября.</p>
+    <p class="how" id="ch">Введите его в корзине при оформлении. Действует до 15 декабря.</p>
   </div>
 
   <div class="next">
@@ -78,6 +78,10 @@ fbq('init','1566847688192095');fbq('track','PageView');
   var V = {
     fila: { ph: '../img/fila.jpg', alt: 'Ролл Филадельфия', h: 'Филадельфия в подарок',
             s: 'Тем, кто заказывает у нас впервые, к заказу от 6 000 ₸. Доставка и самовывоз в Костанае.' },
+    // 01.11: тест «подарок + баллы на второй заказ» (код из того же пула, что fila; 1 500 начисляет сервер после первого заказа)
+    fila15: { ph: '../img/fila.jpg', alt: 'Ролл Филадельфия', h: 'Филадельфия в подарок + 1 500 баллов',
+              s: 'Тем, кто заказывает у нас впервые: Филадельфия к заказу от 6 000 ₸, а на следующий заказ 1 500 баллов. Доставка и самовывоз в Костанае.',
+              ch: 'Введите код в корзине при оформлении, действует до 15 декабря. Заказывайте в приложении по этому номеру: на следующий день после заказа придут 1 500 баллов на второй заказ, они действуют 14 дней.' },
     set: { ph: '../img/set_druzya.jpg', alt: 'Сет Для друзей, 40 штук', h: 'Сет «Для друзей» за 7 990 ₸',
            s: '40 штук вместо 9 990 ₸ на первый заказ. Доставка и самовывоз в Костанае.' },
     bonus: { ph: '../img/set_lyubimy.jpg', alt: 'Роллы Лосось', h: '3 000 бонусов на первый заказ',
@@ -95,6 +99,7 @@ fbq('init','1566847688192095');fbq('track','PageView');
   var $ = function (id) { return document.getElementById(id); };
   $('ph').src = c.ph; $('ph').alt = c.alt; $('h').textContent = c.h; $('s').textContent = c.s;
   if (c.ct) { $('ct').textContent = c.ct; $('cv').textContent = c.cv; $('ch').textContent = c.ch; }
+  else if (c.ch) $('ch').textContent = c.ch;
   if (c.btn) { $('open').childNodes[2].textContent = ' ' + c.btn + ' '; $('open').nextElementSibling.style.display = 'none'; }
   if (/demo=code/.test(location.search)) document.getElementById('w').classList.add('done');
   // Номер → счётчик хаба (тот же адрес, что в track.js) → личный код из пула или «ждём регистрации».
