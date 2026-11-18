@@ -1,0 +1,30 @@
+name: banners
+on:
+  schedule:
+    - cron: '17 */3 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Забрать список баннеров из кабинета (через Apps Script)
+        run: |
+          curl -sL --max-time 60 "https://script.google.com/macros/s/AKfycbzzJgA_vlvJwr6baNLNz-7O60Wj_-yq5ryx8cBwjOBgbEoovw95pq004BRxgZFP63IeHA/exec?a=banners" -o new.json
+          python3 - <<'PY'
+          import json,sys
+          d=json.load(open('new.json',encoding='utf-8'))
+          b=d.get('banners') or []
+          ok=[x for x in b if str(x.get('img','')).startswith('https://cdn-kz14.foodpicasso.com/')]
+          if not ok:
+              print('пусто или битый ответ, оставляем прежний файл'); sys.exit(1)
+          json.dump({'banners':ok,'at':d.get('at','')},open('banners.json','w',encoding='utf-8'),ensure_ascii=False)
+          PY
+      - name: Закоммитить, если изменилось
+        run: |
+          git config user.name "banners-bot"
+          git config user.email "banners-bot@users.noreply.github.com"
+          git add banners.json
+          git diff --cached --quiet || (git commit -m "Баннеры: обновление из кабинета" && git push)

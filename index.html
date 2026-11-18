@@ -43,7 +43,7 @@
 </div>
 <script src="open.js"></script>
 <script>
-  var BANNERS_URL = 'https://script.google.com/macros/s/AKfycbzzJgA_vlvJwr6baNLNz-7O60Wj_-yq5ryx8cBwjOBgbEoovw95pq004BRxgZFP63IeHA/exec?a=banners';
+  var BANNERS_URL = 'banners.json';   // обновляется сама GitHub-задачей раз в 3 часа из кабинета (Apps Script отвечает ~4 с, напрямую из страницы медленно)
   var APP_LINK = 'https://foodpicasso.com/x/3341xacf';
   // 18.11.2026: слайды сами берутся из кабинета (включённые баннеры). Не загрузилось за 2,5 с или список пуст — остаются зашитые.
   function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]; }); }
