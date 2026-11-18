@@ -43,23 +43,45 @@
 </div>
 <script src="open.js"></script>
 <script>
-  // Слайд акции «10% баллами» прячется сам после 30.09 (Азамат: «вдруг я забуду»).
-  if (Date.now() >= Date.parse('2026-10-01T00:00:00+05:00')) {
-    var x2s = document.querySelector('[data-e=banner_x2]'); if (x2s) x2s.remove();
-    var dd = document.querySelectorAll('#dots i'); if (dd.length > 3) dd[dd.length - 1].remove();
+  var BANNERS_URL = 'https://script.google.com/macros/s/AKfycbzzJgA_vlvJwr6baNLNz-7O60Wj_-yq5ryx8cBwjOBgbEoovw95pq004BRxgZFP63IeHA/exec?a=banners';
+  var APP_LINK = 'https://foodpicasso.com/x/3341xacf';
+  // 18.11.2026: слайды сами берутся из кабинета (включённые баннеры). Не загрузилось за 2,5 с или список пуст — остаются зашитые.
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]; }); }
+  function loadBanners() {
+    return new Promise(function (ok) {
+      var done = false, t = setTimeout(function () { if (!done) { done = true; ok(null); } }, 2500);
+      fetch(BANNERS_URL).then(function (r) { return r.json(); }).then(function (j) {
+        if (done) return; done = true; clearTimeout(t);
+        var list = (j && j.banners || []).filter(function (b) { return b && /^https:\/\/cdn-kz14\.foodpicasso\.com\//.test(b.img || ''); });
+        ok(list.length ? list : null);
+      }).catch(function () { if (!done) { done = true; clearTimeout(t); ok(null); } });
+    });
   }
-  lososOpen(document.getElementById('open'));
-  document.querySelectorAll('.slide').forEach(lososOpen);
-  (function(){
+  function rebuild(list) {
+    var box = document.getElementById('promo'), dotsBox = document.getElementById('dots');
+    box.innerHTML = list.map(function (b, i) {
+      return '<a class="slide" data-e="banner_' + esc(b.id) + '" href="' + APP_LINK + '"><img src="' + esc(b.img) + '" alt="' + esc(b.name) + '"' + (i ? '' : ' fetchpriority="high"') + '></a>';
+    }).join('');
+    dotsBox.innerHTML = list.map(function (b, i) { return '<i' + (i ? '' : ' class="on"') + '></i>'; }).join('');
+  }
+  function init(fromCabinet) {
+    // Зашитый слайд акции «10% баллами» прячется сам после 30.09 (только для запасного набора).
+    if (!fromCabinet && Date.now() >= Date.parse('2026-10-01T00:00:00+05:00')) {
+      var x2s = document.querySelector('[data-e=banner_x2]'); if (x2s) x2s.remove();
+      var dd = document.querySelectorAll('#dots i'); if (dd.length > 3) dd[dd.length - 1].remove();
+    }
+    lososOpen(document.getElementById('open'));
+    document.querySelectorAll('.slide').forEach(lososOpen);
     var box=document.getElementById('promo'),dots=document.querySelectorAll('#dots i'),n=dots.length,cur=0,t;
     function mark(i){cur=i;dots.forEach(function(d,k){d.classList.toggle('on',k===i)})}
     box.addEventListener('scroll',function(){mark(Math.round(box.scrollLeft/box.clientWidth))},{passive:true});
     function next(){box.scrollTo({left:((cur+1)%n)*box.clientWidth,behavior:'smooth'})}
-    function start(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;clearInterval(t);t=setInterval(next,4500)}
+    function start(){if(n<2||matchMedia('(prefers-reduced-motion:reduce)').matches)return;clearInterval(t);t=setInterval(next,4500)}
     box.addEventListener('touchstart',function(){clearInterval(t)},{passive:true});
     box.addEventListener('touchend',start,{passive:true});
     start();
-  })();
+  }
+  loadBanners().then(function (list) { if (list) rebuild(list); init(!!list); });
 </script>
 <script src="track.js"></script>
 </body>
